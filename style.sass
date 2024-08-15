@@ -1,0 +1,545 @@
+html
+  font-size: calc(10000vw / 1920)
+  @media (min-aspect-ratio: 1440 / 1080)
+    font-size: calc(10000vh / 1080)
+
+:root
+  --main-font: "Work Sans", sans-serif
+  --color-black: #000000
+  --color-black-light: #181b1a
+  --color-light-purity: #E0D8EB
+  --color-fat-tuesday: #341F37
+  --color-bashful-pancy: #D8CEE6
+  --color-sugar-crystal: #F9F5FF
+  --color-white: #ffffff
+
+*
+    box-sizing: border-box
+
+html, body
+    width: 100%
+    background: var(--color-fat-tuesday)
+    margin: 0
+
+body,
+main
+    overflow-x: hidden
+
+body
+    width: 100%
+    height: 100%
+    background: var(--color-light-purity)
+    font-family: var(--main-font)
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    text-rendering: optimizeLegibility
+    &::before
+        content: ''
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: var(--color-light-purity)
+        background-image: url('https://cdn.zajno.com/dev/codepen/cicada/texture.png')
+        background-repeat: repeat
+        mix-blend-mode: soft-light
+    &::after
+        content: ''
+        position: fixed
+        bottom: -3.76rem
+        left: 50%
+        width: 22.42rem
+        height: 8.86rem
+        background: var(--color-sugar-crystal)
+        filter: blur(2.5rem)
+        transform: translateX(-50%)
+        z-index: 0
+    &.mobile-menu-open
+        overflow: hidden
+    &.modal-active
+        overflow: hidden
+
+main
+    position: relative
+    width: 100%
+    height: 10000px
+    flex: 1 0 auto
+
+.header
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    max-width: 100vw
+    height: auto
+    z-index: 100
+    &-wrapp
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: .3rem .4rem
+    &-left
+        display: flex
+        align-items: center
+        gap: 1.37rem
+    &-main
+        display: flex
+        align-items: center
+        gap: .16rem
+    &-logo
+        width: 1.34rem
+        height: max-content
+        img
+            display: block
+            width: 100%
+            height: auto
+    &-title
+        max-width: .89rem
+        font-size: 0.12rem
+        font-weight: 500
+        letter-spacing: -.005rem
+        line-height: 1.2
+        margin-top: .04rem
+    &-search
+        display: flex
+        align-items: center
+        gap: .08rem
+        &__btn
+            width: .13rem
+            img
+                display: block
+                width: 100%
+                height: auto
+        &__input
+            background: transparent
+            border: none
+            font-family: var(--main-font)
+            font-size: .16rem
+            font-weight: 500
+            letter-spacing: -.0065rem
+            &::placeholder
+                color: var(--color-fat-tuesday)
+    &-right
+        display: flex
+        align-items: center
+        gap: .78rem
+    &-contact
+        position: relative
+        font-family: var(--main-font)
+        font-size: .16rem
+        font-weight: 500
+        letter-spacing: -.0065rem
+        background: none
+        color: var(--color-fat-tuesday)
+        border: none
+        padding: 0
+        &::before
+            content: ''
+            position: absolute
+            bottom: -.04rem
+            left: 0
+            width: 100%
+            height: 1px
+            background: currentColor
+    &-menu
+        display: flex
+        align-items: center
+        justify-content: center
+        width: .35rem
+        height: .35rem
+        aspect-ratio: 1/1
+        background: var(--color-fat-tuesday)
+        border-radius: 50%
+        border: 1px solid var(--color-fat-tuesday)
+        img
+            width: .1465rem
+
+.footer
+    width: 100%
+    flex: 0 0 auto
+
+a
+    text-decoration: none
+    outline: none
+
+img
+    max-width: 100%
+    height: auto
+
+.fluid-container
+    width: 100%
+    position: relative
+
+.container
+    position: relative
+    width: var(--container-width)
+    min-width: var(--container-width)
+    margin: 0 auto
+
+.row
+    display: flex
+    flex-direction: row
+
+.row-reverse
+    display: flex
+    flex-direction: row-reverse
+
+.column
+    display: flex
+    flex-direction: column
+
+.column-reverse
+    display: flex
+    flex-direction: column-reverse
+
+.s-visible,
+.xs-visible,
+.xxs-visible
+    display: none
+
+.lazy
+    opacity: 0
+    transition: opacity 0.4s ease
+    &Loaded
+        opacity: 1
+
+input
+    &::-webkit-input-placeholder,
+    &::placeholder
+        transition: all .3s
+    &:focus
+        &::-webkit-input-placeholder,
+        &::placeholder
+            color: transparent
+
+button[type='submit']
+    cursor: pointer
+
+@media only screen and (max-width : 1024px)
+
+    .s-hidden
+        display: none
+
+    .s-visible
+        display: block
+
+@media only screen and (max-width : 850px)
+
+    .xs-hidden
+        display: none
+
+    .xs-visible
+        display: block
+
+@media only screen and (max-width : 690px)
+
+    body
+        &.modal-active
+            position: fixed
+
+    .xxs-visible
+        display: block
+
+    .xxs-hidden
+        display: none
+
+
+#main
+    padding: .1rem
+    
+.banner
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  max-width: 100vw
+  height: 100%
+  max-height: 100vh
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 0 0.4rem
+  overflow: hidden
+  z-index: 1
+  &-slide
+    z-index: 2
+  &-title
+    position: absolute
+    top: 1.95rem
+    max-width: 9.57rem
+    font-size: 1rem
+    line-height: 1.1
+    letter-spacing: -0.07rem
+    text-align: center
+    z-index: 3
+    span
+      position: relative
+      display: inline-block
+      &::before
+        content: ""
+        position: absolute
+        bottom: -0.04rem
+        left: 0
+        width: 100%
+        border-bottom: 4px solid currentColor
+        transform: rotate(-3deg)
+  &-subtitle
+    position: absolute
+    top: 2.8rem
+    font-size: 1rem
+    line-height: 1.1
+    letter-spacing: -0.07rem
+    text-align: center
+    opacity: 0
+    z-index: 1
+  &-text
+    position: absolute
+    top: 1.89rem
+    max-width: 6.87rem
+    font-size: 0.42rem
+    line-height: 1.1
+    letter-spacing: -0.0295rem
+    opacity: 0
+    z-index: 1
+  &-tree
+    position: absolute
+    bottom: 0
+    left: 50%
+    width: 19rem
+    height: auto
+    transform: translateX(-50%)
+    transform-origin: bottom
+    z-index: 2
+    img, video
+      display: block
+      width: 100%
+
+.wings
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  max-width: 100vw
+  height: 100%
+  max-height: 100vh
+  overflow: hidden
+  &-svg
+    position: absolute
+    left: 50%
+    bottom: 0.95rem
+    width: 95vw
+    height: auto
+    transform: translateX(-50%)
+    z-index: 3
+    svg
+      width: 100%
+      height: auto
+  &-hidden
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: auto
+
+.tree
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  max-width: 100vw
+  height: 100%
+  max-height: 100vh
+  overflow: hidden
+  z-index: 1
+  &-name
+    position: absolute
+    top: .92rem
+    left: 50%
+    font-size: .51rem
+    letter-spacing: -.0357rem
+    opacity: 0
+    transform: translateX(-50%)
+  &-wrapp
+    position: absolute
+    top: 3.32rem
+    left: 50%
+    display: block
+    width: 9.5rem
+    transform: translateX(-50%)
+    z-index: 1
+  &-svg
+    display: none
+    width: 100%
+    height: auto
+  &-circle
+    position: absolute
+    top: 1rem
+    left: 50%
+    width: 8.62rem
+    height: auto
+    aspect-ratio: 1/1
+    box-shadow: 0 0 0 1px var(--color-fat-tuesday)
+    border-radius: 50%
+    transform: translateX(-50%) scale(0)
+    &__small
+      box-shadow: 0 0 0 3px var(--color-fat-tuesday)
+  &-title
+    position: absolute
+    max-width: 2rem
+    font-size: 0.2rem
+    font-weight: 400
+    letter-spacing: -0.009rem
+    padding: 0.18rem
+    cursor: pointer
+    z-index: 2
+    span
+      opacity: 0
+      transform: translateY(100%)
+    &_top
+      top: -0.25rem
+      left: 50%
+      transform: translate(-50%, -100%)
+      transform-origin: bottom center
+    &_left-top
+      top: 0.57rem
+      right: 6.11rem
+      transform: translate(-100%, -50%)
+      transform-origin: bottom right
+    &_left
+      top: 2.13rem
+      left: -0.1rem
+      transform: translate(-100%, 0%)
+      transform-origin: bottom right
+    &_right-top
+      top: 0.57rem
+      left: 5.69rem
+      transform: translate(100%, -50%)
+      transform-origin: bottom left
+    &_right
+      top: 2.13rem
+      right: -0.1rem
+      transform: translate(100%, 0%)
+      transform-origin: bottom left
+    &__decor
+      position: absolute
+      top: 50%
+      width: 0.08rem
+      height: auto
+      transform: translateY(-50%)
+      opacity: 0
+      &.left
+        left: 0.06rem
+      &.right
+        right: 0.06rem
+  &-ball
+    position: absolute
+    width: 0.14rem
+    height: 0.14rem
+    cursor: pointer
+    aspect-ratio: 1/1
+    opacity: 0
+    z-index: 2
+    &_top
+      top: 0
+      left: 50%
+      transform: translate(-50%, -100%)
+    &_left-top
+      top: 0.6rem
+      right: 7.39rem
+      transform: translate(0%, -50%)
+    &_left
+      top: 2.5rem
+      left: 0
+      transform: translate(-50%, -100%)
+    &_right-top
+      top: 0.6rem
+      left: 7.39rem
+      transform: translate(0%, -50%)
+    &_right
+      top: 2.5rem
+      right: 0
+      transform: translate(50%, -100%)
+    span
+      position: absolute
+      top: 0
+      left: 0
+      display: block
+      width: 100%
+      aspect-ratio: 1/1
+      background: var(--color-fat-tuesday)
+      border-radius: 50%
+      pointer-events: none
+      &:not(:first-child)
+        opacity: 0
+  &-wings
+    position: absolute
+    bottom: -1.22rem
+    left: 50%
+    width: 15.15rem
+    height: 5.04rem
+    max-height: 100vh
+    transform: translateX(-50%)
+    opacity: 0
+    z-index: 1
+    &__item
+      position: absolute
+      img
+        width: 100%
+        height: auto
+    &__center
+      position: absolute
+      top: 1.28rem
+      left: 50%
+      width: 1.34rem
+      transform: translateX(-50%)
+    &__top-left
+      position: absolute
+      top: 0
+      left: 0
+      width: 7.05rem
+      transform-origin: center right
+    &__top-right
+      position: absolute
+      top: 0
+      right: 0
+      width: 7.05rem
+      transform-origin: center left
+    &__bottom-left
+      position: absolute
+      top: 2.586rem
+      left: 3.496rem
+      width: 3.9rem
+      transform-origin: top right
+    &__bottom-right
+      position: absolute
+      top: 2.586rem
+      right: 3.496rem
+      width: 3.9rem
+      transform-origin: top left
+      
+.sound
+  position: fixed
+  bottom: .63rem
+  right: .75rem
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: .045rem
+  width: .44rem
+  aspect-ratio: 1/1
+  background: var(--color-bashful-pancy)
+  border: none
+  border-radius: 50%
+  cursor: pointer
+  overflow: hidden
+  z-index: 100
+  &-item
+    width: 0.03rem
+    height: 0.10rem
+    border-radius: 0.03rem
+    background: var(--color-fat-tuesday)
+    &:nth-child(odd)
+      height: 0.15rem
+    
+  
